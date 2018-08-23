@@ -1,0 +1,5 @@
+<view>
+    <text>{{text}}</text>
+    <button bindtap="change" type="default" size="small">change</button>
+    <button bindtap="decrement" type="default" size="small">decrement</button>
+</view>
