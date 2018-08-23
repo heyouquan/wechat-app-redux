@@ -3,7 +3,7 @@ import { changeText } from '../../store/actions/testAction' // 其中changeText�
 
 const pageConfig = {
     data: {
-        text: 0
+        staticText: 0
     },
     onLoad: function (options) {
         console.log('onLoad')
@@ -11,16 +11,17 @@ const pageConfig = {
         // 通过this.data.xxx获取到state
     },
     change: function () {
-        this.changeText(this.data.text+1)
+        this.changeText(this.data.staticText + 1)
+        this.setData({staticText: this.data.testReducers.text})
     },
     decrement: function () {
-        this.changeText(this.data.text - 1)
+        this.changeText(this.data.staticText - 1)
+        this.setData({staticText: this.data.testReducers.text})
     }
 }
 
-const mapStateToData = state => ({
-    // state
-    text: state.testReducers.text
+const mapStateToData = ({ testReducers }) => ({
+    testReducers
 })
 
 const mapDispatchToPage = dispatch => (bindActionCreators({

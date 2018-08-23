@@ -1,8 +1,8 @@
-export default function testReducer(state={text: 0}, action) {
+export default function testReducer(state={}, action) {
     const { type, payload } = action;
     switch (type) {
         case 'ADD':
-            return {...state, text: payload}
+            return {...state, text: payload}    
         default:
             return state    
     }
